@@ -32,29 +32,33 @@
 
 
 .container {
-    height: 500px;
+    height: 530px;
     width: 600px;
     display: grid;
     border: 1px solid black;
 
-    margin-top: 50px;
+    margin-top: 10px;
     background-color: white;
 }
 .main {
     display: flex;
-    gap: 50px;
-    justify-content: space-between;
+    gap: 200px;
+    justify-content: center;
     align-items: center;
-    padding: 0 50px;
+    padding: 15px 50px;
+    border: 1px black solid;
+    margin: 5px 30px;
+    box-shadow: 10px 10px black;
+    border-radius: 20px;
+
 }
 .new-color {
     background-color: black;
 }
 .header {
     color: #F9FAF8;;
-    padding: 10px;
     font-family: 'Permanent Marker', cursive;
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
 }
 body{
@@ -64,7 +68,20 @@ body{
 }
 
 #slider-output {
-    width: max-content;
     font-family: 'Cabin', sans-serif;
     font-size: 25px;
+}
+
+.controls {
+    border: 1px black solid;
+    height: 530px;
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    /* display: flex; */
+    /* flex-direction: column; */
+
+}
+.slider{
+    /* align-self: flex-end; */
 }
