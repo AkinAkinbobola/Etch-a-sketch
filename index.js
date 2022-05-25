@@ -15,7 +15,15 @@ slider.oninput = function() {
     output.innerHTML = `${this.value} X ${this.value}`;
 }
 
-function changeColour(newCol){
+function Colour(){
+    if(colour === "rainbow"){
+        this.style.backgroundColor= `#${Math.floor(Math.random()*16777215).toString(16)}`;
+    }else{
+        this.style.backgroundColor = colour;
+    }
+}
+
+function changeColour(newCol) {
     colour = newCol;
 }
 
@@ -28,7 +36,7 @@ const createGrid = (size) =>{
         for (let j = 0; j < size; j++) {
             let new_div = document.createElement("div");
             new_div.style.border = `1px solid gray`;
-            new_div.addEventListener("mouseover", changeColour);
+            new_div.addEventListener("mouseover", Colour);
             new_div.classList.add("grid-item");
             container.appendChild(new_div);
         }
@@ -52,6 +60,4 @@ function clear () {
 clearBtn.addEventListener("click", clear);
 createGrid(sliderValue);
 sliderOutput();
-
-
 
