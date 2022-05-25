@@ -4,6 +4,7 @@ let slider = document.getElementById("myRange");
 let output = document.getElementById("slider-output");
 let clearBtn = document.getElementById("clear");
 let colour = "black";
+let click = false;
 
 
 let sliderOutput = () => {
@@ -16,11 +17,14 @@ slider.oninput = function() {
 }
 
 function Colour(){
-    if(colour === "rainbow"){
-        this.style.backgroundColor= `#${Math.floor(Math.random()*16777215).toString(16)}`;
-    }else{
-        this.style.backgroundColor = colour;
+    if(click){
+        if(colour === "rainbow"){
+            this.style.backgroundColor= `#${Math.floor(Math.random()*16777215).toString(16)}`;
+        }else{
+            this.style.backgroundColor = colour;
+        }
     }
+
 }
 
 function changeColour(newCol) {
@@ -54,6 +58,7 @@ function clear () {
     grid_items.forEach(item => item.style.backgroundColor = "white");
 }
 
+document.querySelector("body").addEventListener("click", () => click = !click);
 
 
 
