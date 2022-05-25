@@ -2,6 +2,8 @@ const container = document.querySelector(`div[class="container"]`);
 const sliderValue = document.getElementById("myRange").value;
 let slider = document.getElementById("myRange");
 let output = document.getElementById("slider-output");
+let colour = "black";
+
 
 let sliderOutput = () => {
     output.innerHTML = `${slider.value} X ${slider.value}`;
@@ -14,7 +16,8 @@ slider.oninput = function() {
 
 
 const createGrid = (size) =>{
-    container.querySelectorAll("div").forEach(div => div.remove());
+    container.querySelectorAll("div").forEach(div => div.remove()); // Clear all existing divs
+    // Dynamically add new divs
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     for (let i = 0; i < size; i++) {
@@ -29,15 +32,26 @@ const createGrid = (size) =>{
 
 createGrid(sliderValue);
 
-const setUp = (value) =>{
+const setup = (value) => {
     createGrid(value);
 }
 
-
-
+const changeColour = (newColour) => {
+    colour = newColour;
+}
 const grid_items = document.querySelectorAll(`div[class="grid-item"]`);
 
-grid_items.forEach(item => item.addEventListener("mouseover", (e)=>{
-    item.classList.add("new-color");
+
+
+
+let clearBtn = document.getElementById("clear");
+clearBtn.addEventListener("click", () => {
+    grid_items.forEach(item => item.style.backgroundColor = "white");
+});
+
+
+
+grid_items.forEach(item => item.addEventListener("mouseover", () => {
+    item.style.backgroundColor = colour;
 }));
 
